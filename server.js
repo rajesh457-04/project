@@ -45,74 +45,140 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage });
 
-// Registration Route
+
+
+// Enhanced Registration Route
 app.post('/register', async (req, res) => {
   try {
-    const { username, email, password, confirmpassword } = req.body;
-    let exist = await Registeruser.findOne({ email });
+    let { username, email, password, confirmpassword } = req.body;
+
+    username = username.trim();
+    email = email.toLowerCase().trim();
+    password = password.trim();
+    confirmpassword = confirmpassword.trim();
+
+    if (!username || !email || !password || !confirmpassword) {
+      return res.status(400).json({ success: false, message: 'All fields are required' });
+    }
+
+    const exist = await Registeruser.findOne({ email });
     if (exist) {
-      return res.status(400).send('User Already Exist');
+      return res.status(400).json({ success: false, message: 'User already exists' });
     }
+
     if (password !== confirmpassword) {
-      return res.status(400).send('Passwords are not matching');
+      return res.status(400).json({ success: false, message: 'Passwords do not match' });
     }
 
-    // Hash the password
-    const hashedPassword = await bcrypt.hash(password, 10);
-
-    let newUser = new Registeruser({
+    // No need to hash manually — the pre-save hook handles it
+    const newUser = new Registeruser({
       username,
       email,
-      password: hashedPassword, // Save the hashed password
+      password, // raw password here
     });
+
     await newUser.save();
-    res.status(200).send('Registered Successfully');
+
+    res.status(201).json({
+      success: true,
+      message: 'Registered successfully',
+    });
+
   } catch (err) {
-    console.error(err);
-    return res.status(500).send('Internal Server Error');
+    console.error('Registration error:', err);
+    res.status(500).json({ success: false, message: 'Registration failed. Please try again.' });
   }
 });
 
-// Login Route
+
+// Enhanced Login Route
 app.post('/login', async (req, res) => {
   try {
-    const { email, password } = req.body;
+    let { email, password } = req.body;
+    
+    // Trim and normalize inputs
+    email = email.toLowerCase().trim();
+    password = password.trim();
 
-    // Check if user exists
-    let exist = await Registeruser.findOne({ email });
-    if (!exist) {
-      return res.status(400).send('User Not Found');
-    }
-
-    // Compare hashed password
-    const isMatch = await bcrypt.compare(password, exist.password);
-    if (!isMatch) {
-      return res.status(400).send('Invalid credentials');
-    }
-
-    // Create payload for JWT
-    let payload = {
-      user: {
-        id: exist.id, // Use the user's ID
-      },
-    };
-
-    // Sign the token using the secret from environment variables
-    jwt.sign(payload, process.env.JWT_SECRET, { expiresIn: '1h' }, (err, token) => {
-      if (err) {
-        console.error('Error signing token:', err);
-        return res.status(500).send('Server Error');
-      }
-      console.log('Generated Token:', token);
-      return res.json({ token }); // Send the token back to the client
+    console.log('Login attempt:', {
+      email,
+      passwordLength: password.length
     });
-  } catch (err) {
-    console.error('Server Error:', err);
-    return res.status(500).send('Server Error');
+
+    // Validate inputs
+    if (!email || !password) {
+      return res.status(400).json({
+        success: false,
+        message: 'Email and password are required'
+      });
+    }
+
+    // Find user with password field
+    const user = await Registeruser.findOne({ email }).select('+password');
+    
+    if (!user) {
+      console.log('User not found for email:', email);
+      return res.status(401).json({
+        success: false,
+        message: 'Invalid credentials'
+      });
+    }
+
+    console.log('User found:', user.email);
+    console.log('Stored hash:', user.password);
+
+    // Compare passwords
+    const isMatch = await bcrypt.compare(password, user.password);
+    console.log('Password comparison result:', isMatch);
+
+    if (!isMatch) {
+      // Additional debug: test with newly generated hash
+      const testHash = await bcrypt.hash(password, 10);
+      console.log('Test hash comparison:', {
+        inputPassword: password,
+        testHash,
+        storedHash: user.password,
+        matchesStored: testHash === user.password,
+        matchesTest: await bcrypt.compare(password, testHash)
+      });
+      
+      return res.status(401).json({
+        success: false,
+        message: 'Invalid credentials'
+      });
+    }
+
+    // Create JWT token
+    const token = jwt.sign(
+      {
+        userId: user._id,
+        email: user.email
+      },
+      process.env.JWT_SECRET,
+      { expiresIn: '1h' }
+    );
+
+    console.log('Login successful for:', email);
+    res.json({
+      success: true,
+      token,
+      user: {
+        id: user._id,
+        username: user.username,
+        email: user.email
+      }
+    });
+
+  } catch (error) {
+    console.error('Login error:', error);
+    res.status(500).json({
+      success: false,
+      message: 'Authentication failed. Please try again.'
+    });
   }
 });
 
-// Get User Profile
+
 app.get('/api/user/profile', middleware, async (req, res) => {
   try {
     const user = await Registeruser.findById(req.user.id).select('-password');
