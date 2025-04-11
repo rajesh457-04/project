@@ -26,7 +26,7 @@ const Register = () => {
         setLoading(true);
         try {
             const res = await axios.post('http://localhost:5000/register', data);
-            alert(res.data);
+            alert(res.data.message || "Registration successful!");
             setData({
                 username: '',
                 email: '',
@@ -52,7 +52,6 @@ const Register = () => {
                         type="text"
                         name="username"
                         required
-                        
                         value={data.username}
                         onChange={changeHandler}
                     />
@@ -64,7 +63,6 @@ const Register = () => {
                         type="email"
                         name="email"
                         required
-                        
                         value={data.email}
                         onChange={changeHandler}
                     />
@@ -76,7 +74,6 @@ const Register = () => {
                         type="password"
                         name="password"
                         required
-                        
                         value={data.password}
                         onChange={changeHandler}
                     />
@@ -88,7 +85,6 @@ const Register = () => {
                         type="password"
                         name="confirmpassword"
                         required
-                       
                         value={data.confirmpassword}
                         onChange={changeHandler}
                     />

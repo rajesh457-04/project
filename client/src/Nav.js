@@ -1,17 +1,15 @@
 import React, { useContext } from 'react';
-import { Link, useLocation } from 'react-router-dom'; // useLocation to get the current route
+import { Link, useLocation } from 'react-router-dom';
 import { store } from './App';
-import './nav.css'; // Import the consolidated CSS file
+import './nav.css';
 
 const Nav = () => {
   const [token] = useContext(store);
-  const location = useLocation(); // Get the current route
-
+  const location = useLocation();
   const isLoginOrRegisterPage = location.pathname === '/login' || location.pathname === '/register';
 
   return (
     <div>
-      {/* Navbar */}
       <div className="nav-bar">
         <div className="navlinks">
           {!token ? (
@@ -23,8 +21,7 @@ const Nav = () => {
         </div>
       </div>
 
-        {/* Display a professional message and an image only if user is not logged in and not on login/register pages */}
-        {!token && !isLoginOrRegisterPage && (
+      {!token && !isLoginOrRegisterPage && (
         <div className="content-container">
           <h2 className="welcome-title">Welcome to Our Platform!</h2>
           <p className="professional-sentence">
@@ -37,7 +34,7 @@ const Nav = () => {
             access exclusive content, we have something for everyone.
           </p>
           <Link to="/register" className="cta-button">Get Started</Link>
-          <div >
+          <div>
             <img src="/images/semi.jpg" alt="Empowering view" className="responsive-image" />
           </div>
         </div>

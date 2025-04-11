@@ -1,156 +1,192 @@
-/* FindLocations.css */
+* {
+    box-sizing: border-box;
+}
 
 body {
-    background-color: #121212; /* Dark background for the entire page */
-    color: #ffffff; /* Default text color */
-    font-family: 'Roboto', sans-serif; /* Clean, modern sans-serif font */
-    margin: 0; /* Remove default margin */
-    padding: 0; /* Remove default padding */
+    background-color: #121212;
+    color: #ffffff;
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
 }
 
 .find-locations-container {
-    width: 90%; /* Set width to 90% of the viewport */
-    max-width: 900px; /* Increased max-width for better content display */
-    margin: 50px auto; /* Center the container with ample space around */
-    padding: 40px; /* Add padding for inner space */
-    border-radius: 15px; /* Rounded corners for a softer look */
-    background-color: #1c1c1c; /* Slightly darker container background */
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6); /* Stronger shadow for floating effect */
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effects */
+    width: 90%;
+    max-width: 900px;
+    margin: 50px auto;
+    padding: 40px;
+    border-radius: 15px;
+    background-color: #1c1c1c;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .find-locations-container:hover {
-    transform: translateY(-5px); /* Slight lift effect on hover */
-    box-shadow: 0 12px 50px rgba(0, 0, 0, 0.7); /* Enhanced shadow on hover */
+    transform: translateY(-5px);
+    box-shadow: 0 12px 50px rgba(0, 0, 0, 0.7);
 }
 
 h2 {
-    text-align: center; /* Center the heading */
-    color: #00bcd4; /* Bright cyan color for the heading */
-    margin-bottom: 25px; /* Reduced margin for tighter layout */
-    font-size: 2.4em; /* Increased font size for emphasis */
-    font-weight: 600; /* Semi-bold font for a professional look */
+    text-align: center;
+    color: #00bcd4;
+    margin-bottom: 25px;
+    font-size: 2.4em;
+    font-weight: 600;
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
 }
 
 .search-location {
-    display: flex; /* Flexbox for horizontal layout */
-    justify-content: center; /* Center the input and button */
-    margin-bottom: 30px; /* Increased space below the search area */
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
 }
 
 .location-input {
-    padding: 12px; /* Increased padding for input */
-    border: 1px solid #333; /* Darker border for contrast */
-    border-radius: 8px; /* Softer, rounded corners */
-    width: 70%; /* Adjusted input width for better balance */
-    margin-right: 15px; /* Increased space between input and button */
-    background-color: #2a2a2a; /* Slightly lighter input background */
-    color: #ffffff; /* White text color */
-    font-size: 1.1em; /* Slightly larger font size */
-    transition: all 0.3s ease; /* Smooth transition on focus */
+    padding: 12px;
+    border: 1px solid #333;
+    border-radius: 8px;
+    width: 70%;
+    margin-right: 15px;
+    background-color: #2a2a2a;
+    color: #ffffff;
+    font-size: 1.1em;
+    transition: all 0.3s ease;
 }
 
 .location-input:focus {
-    border-color: #00bcd4; /* Cyan border color on focus */
-    background-color: #333; /* Darker input background on focus */
-    outline: none; /* Remove default focus outline */
+    border-color: #00bcd4;
+    background-color: #333;
+    outline: none;
+}
+
+.location-input:focus-visible {
+    outline: 2px solid #00bcd4;
+    outline-offset: 3px;
 }
 
 .search-button {
-    padding: 12px 25px; /* Increased padding for better button size */
-    border: none; /* Remove default border */
-    border-radius: 8px; /* Rounded button corners */
-    background-color: #00bcd4; /* Bright cyan background for the button */
-    color: #ffffff; /* White text color */
-    font-size: 1.1em; /* Larger font size for readability */
-    cursor: pointer; /* Pointer cursor on hover */
-    transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transition on hover */
+    padding: 12px 25px;
+    border: none;
+    border-radius: 8px;
+    background-color: #00bcd4;
+    color: #ffffff;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 .search-button:hover {
-    background-color: #0097a7; /* Darker cyan shade on hover */
-    transform: scale(1.05); /* Slightly grow the button on hover */
+    background-color: #0097a7;
+    transform: scale(1.05);
+}
+
+.search-button:focus-visible {
+    outline: 2px solid #00bcd4;
+    outline-offset: 3px;
 }
 
 .error-message {
-    color: #ff5252; /* Red color for error messages */
-    text-align: center; /* Center the error message */
-    margin: 20px 0; /* Space around the error message */
-    font-weight: 600; /* Bold font for emphasis */
-    font-size: 1.1em; /* Slightly larger font size */
+    color: #ff5252;
+    text-align: center;
+    margin: 20px 0;
+    font-weight: 600;
+    font-size: 1.1em;
 }
 
 .location-images {
-    display: flex; /* Use flexbox for layout */
-    flex-direction: column; /* Stack images vertically */
-    align-items: center; /* Center the images */
-    gap: 15px; /* Add space between each image block */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
 }
 
 .image-container {
-    position: relative; /* Required for text overlay on image */
-    width: 100%; /* Full width for the container */
-    max-width: 800px; /* Limit width of each image container */
-    height: auto; /* Maintain natural height based on aspect ratio */
-    overflow: hidden; /* Ensure the content doesn't overflow the image boundaries */
-    text-align: center; /* Center text below images */
-    border-radius: 12px; /* Smooth rounded corners */
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4); /* Shadow for images */
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effect */
+    position: relative;
+    width: 100%;
+    max-width: 800px;
+    height: auto;
+    overflow: hidden;
+    text-align: center;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .image-container:hover {
-    transform: scale(1.05); /* Slight zoom effect on hover */
-    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.6); /* Enhanced shadow on hover */
+    transform: scale(1.05);
+    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.6);
 }
 
 .location-image {
-    width: 100%; /* Full width for images */
-    height: auto; /* Maintain aspect ratio */
-    object-fit: cover; /* Ensures the image fills the container while maintaining aspect ratio */
-    border-radius: 12px; /* Rounded corners for images */
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 12px;
 }
 
 .image-description {
-    position: absolute; /* Position the text on top of the image */
-    bottom: 10px; /* Place the text at the bottom of the image */
-    left: 50%; /* Center the text horizontally */
-    transform: translateX(-50%); /* Fine-tune centering */
-    color: #ffffff; /* White text color for contrast */
-    font-size: 1.1em; /* Slightly larger font for better readability */
-    font-weight: 500; /* Medium weight for description text */
-    background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent background */
-    padding: 10px 20px; /* Add padding around the text */
-    border-radius: 8px; /* Rounded corners for the text box */
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #ffffff;
+    font-size: 1.1em;
+    font-weight: 500;
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 10px 20px;
+    border-radius: 8px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.image-container:hover .image-description {
+    opacity: 1;
 }
 
 .no-images-message {
-    text-align: center; /* Center the no images message */
-    color: #e0e0e0; /* Light grey text color */
-    margin-top: 20px; /* Space above the message */
-    font-size: 1.1em; /* Slightly larger font size */
+    text-align: center;
+    color: #e0e0e0;
+    margin-top: 20px;
+    font-size: 1.1em;
 }
 
 @media (max-width: 768px) {
     .location-input {
-        width: 60%; /* Adjust input width on smaller screens */
+        width: 60%;
     }
 
     .search-button {
-        padding: 10px 20px; /* Adjust button size on smaller screens */
+        padding: 10px 20px;
     }
 
     .find-locations-container {
-        width: 95%; /* Adjust container width for smaller screens */
-        padding: 20px; /* Adjust padding for better fit */
+        width: 95%;
+        padding: 20px;
     }
 
     h2 {
-        font-size: 2em; /* Reduce heading size on smaller screens */
+        font-size: 2em;
     }
 
     .image-container {
-        width: 90%; /* Adjust image container width on smaller screens */
-        height: auto; /* Maintain aspect ratio for smaller screens */
+        width: 90%;
+        height: auto;
+    }
+}
+
+@media (max-width: 480px) {
+    .location-input {
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+
+    .search-location {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .search-button {
+        width: 100%;
     }
 }

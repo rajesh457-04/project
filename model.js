@@ -17,17 +17,17 @@ let Registeruser = new mongoose.Schema({
     }
 });
 
-// Pre-save hook to hash the password before saving it to the database
+
 Registeruser.pre('save', async function (next) {
     try {
         if (!this.isModified('password')) {
-            return next(); // If password is not modified, move on
+            return next(); 
         }
-        const salt = await bcrypt.genSalt(10); // Generate a salt
-        this.password = await bcrypt.hash(this.password, salt); // Hash the password
+        const salt = await bcrypt.genSalt(10); 
+        this.password = await bcrypt.hash(this.password, salt); 
         next();
     } catch (err) {
-        next(err); // Pass error to next middleware
+        next(err); 
     }
 });
 

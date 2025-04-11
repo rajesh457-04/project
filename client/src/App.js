@@ -4,10 +4,10 @@ import Nav from './Nav';
 import Register from './Register';
 import Login from './Login';
 import MyProfile from './Myprofile';
-import MyBookings from './components/MyBookings'; // Add this
-import FindLocations from './components/FindLocations'; // Add this
-import Weather from './components/Weather'; // Add this
-import Profile from './components/Profile'; // Add this
+import MyBookings from './components/MyBookings'; 
+import FindLocations from './components/FindLocations'; 
+import Weather from './components/Weather'; 
+
 import './index.css';
 import TouristForm from './components/TouristForm';
 import GuideForm from './components/GuideForm';
@@ -29,7 +29,7 @@ const App = () => {
                         <Route path='/mybookings' element={<MyBookings />} />
                         <Route path='/findlocations' element={<FindLocations />} />
                         <Route path='/weather' element={<Weather />} />
-                        <Route path='/profile' element={<Profile />} />
+                        
                         <Route path="/tourist-form" element={<TouristForm />} />
                         <Route path="/guide-form" element={<GuideForm />} />
                     </Routes>

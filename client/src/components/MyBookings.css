@@ -1,80 +1,78 @@
-/* MyBookings.css */
-
 body {
-    background-color: #121212; /* Dark background for the entire page */
-    color: #ffffff; /* Default text color */
-    font-family: 'Arial', sans-serif; /* Use a clean sans-serif font */
-    margin: 0; /* Remove default margin */
-    padding: 0; /* Remove default padding */
+    background-color: #121212;
+    color: #ffffff;
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
 }
 
 .my-bookings-container {
     font-family: 'Merriweather', serif;
-    width: 90%; /* Set width to 90% of the viewport */
-    max-width: 1200px; /* Optional: Set a maximum width for larger screens */
-    margin: 40px auto; /* Center the container with more space */
-    padding: 30px; /* Add padding */
-    border-radius: 10px; /* Rounded corners */
-    background-color: #1e1e1e; /* Dark background for the container */
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5); /* Deeper shadow for a floating effect */
+    width: 90%;
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 30px;
+    border-radius: 10px;
+    background-color: #1e1e1e;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
 }
 
 h2 {
-    text-align: center; /* Center the heading */
-    color: #00bcd4; /* Bright color for the heading */
-    margin-bottom: 30px; /* Space below the heading */
-    font-size: 2em; /* Larger font size for the heading */
-    font-weight: bold; /* Bold font for emphasis */
+    text-align: center;
+    color: #00bcd4;
+    margin-bottom: 30px;
+    font-size: 2em;
+    font-weight: bold;
 }
 
 .booking-details {
-    border: 1px solid #333; /* Dark border for each booking */
-    border-radius: 8px; /* Rounded corners */
-    padding: 20px; /* Padding inside each booking */
-    margin-bottom: 20px; /* Space between bookings */
-    background-color: #2a2a2a; /* Darker background for each booking */
-    transition: box-shadow 0.3s; /* Smooth transition for hover effect */
+    border: 1px solid #333;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    background-color: #2a2a2a;
+    transition: box-shadow 0.3s;
 }
 
 .booking-details:hover {
-    box-shadow: 0 4px 15px rgba(0, 188, 212, 0.7); /* Shadow on hover with a bright color */
+    box-shadow: 0 4px 15px rgba(0, 188, 212, 0.7);
 }
 
 .booking-details h3 {
-    margin-top: 0; /* Remove top margin */
-    color: #00bcd4; /* Bright color for booking titles */
-    font-size: 1.5em; /* Slightly larger font size for booking titles */
+    margin-top: 0;
+    color: #00bcd4;
+    font-size: 1.5em;
 }
 
 .booking-details p {
-    margin: 8px 0; /* Space between paragraphs */
-    color: #e0e0e0; /* Lighter text color for paragraphs */
-    line-height: 1.5; /* Increase line height for readability */
+    margin: 8px 0;
+    color: #e0e0e0;
+    line-height: 1.5;
 }
 
 .assigned-guide {
-    margin-top: 15px; /* Space above assigned guide section */
-    padding: 15px; /* Padding for assigned guide section */
-    border: 1px solid #00bcd4; /* Border color matching the primary color */
-    border-radius: 5px; /* Rounded corners */
-    background-color: #3a3a3a; /* Darker background for assigned guide section */
+    margin-top: 15px;
+    padding: 15px;
+    border: 1px solid #00bcd4;
+    border-radius: 5px;
+    background-color: #3a3a3a;
 }
 
 .assigned-guide h4 {
-    margin: 0; /* Remove margin for the guide title */
-    color: #00bcd4; /* Bright color for guide title */
+    margin: 0;
+    color: #00bcd4;
 }
 
 .error-message {
-    color: #ff5252; /* Red color for error messages */
-    text-align: center; /* Center the error message */
-    margin: 20px 0; /* Space around the error message */
-    font-weight: bold; /* Bold font for emphasis */
+    color: #ff5252;
+    text-align: center;
+    margin: 20px 0;
+    font-weight: bold;
 }
 
 .no-data-message {
-    text-align: center; /* Center the no data message */
-    color: #888; /* Gray color for no data message */
-    margin: 20px 0; /* Space around the no data message */
-    font-style: italic; /* Italic style for no data message */
+    text-align: center;
+    color: #888;
+    margin: 20px 0;
+    font-style: italic;
 }

@@ -1,10 +1,10 @@
 const mongoose = require('mongoose');
 
 const touristSchema = new mongoose.Schema({
-    userId: { // Add this field to associate the booking with a user
-        type: mongoose.Schema.Types.ObjectId, // Assuming you have a User model
+    userId: {
+        type: mongoose.Schema.Types.ObjectId,
         required: true,
-        ref: 'User ' // Reference to the User model
+        ref: 'User'
     },
     username: {
         type: String,
@@ -21,7 +21,7 @@ const touristSchema = new mongoose.Schema({
     destination: {
         type: String,
         required: true,
-        enum: ['Hyderabad', 'Mumbai', 'Delhi', 'Bangalore', 'Chennai'] // Change if more destinations are available
+        enum: ['Hyderabad', 'Mumbai', 'Delhi', 'Bangalore', 'Chennai']
     },
     dateFrom: {
         type: Date,
@@ -32,8 +32,8 @@ const touristSchema = new mongoose.Schema({
         required: true
     },
     preferredModeOfTransport: {
-        type: [String], // Array of transport options
-        enum: ['Car', 'Bike', 'Bus'], // Modify or add more options
+        type: [String],
+        enum: ['Car', 'Bike', 'Bus'],
         required: true
     },
     travelCompanion: {
@@ -52,13 +52,12 @@ const touristSchema = new mongoose.Schema({
     },
     assignedGuide: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'Guide' // Assuming there's a Guide model to link with
+        ref: 'Guide'
     }
 }, {
     timestamps: true
 });
 
-// Method to check if the tourist has been assigned a guide
 touristSchema.methods.assignGuide = function(guide) {
     this.assignedGuide = guide;
     return this.save();

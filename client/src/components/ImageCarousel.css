@@ -1,25 +1,23 @@
-/* Custom Carousel Control Buttons */
 .custom-carousel-control {
-    width: 40px; /* Set the width of the button */
-    height: 40px; /* Set the height of the button */
-    border-radius: 50%; /* Make it a perfect circle */
-    background-color: rgba(0, 0, 0, 0.6); /* Slightly transparent black */
-    border: 2px solid white; /* Add a white border for better visibility */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  .carousel-control-prev-icon,
-  .carousel-control-next-icon {
-    width: 20px; /* Reduce the icon size */
-    height: 20px;
-    background-size: 100%; /* Make sure the icons fill the container */
-  }
-  
-  .custom-carousel-control:hover {
-    background-color: rgba(0, 0, 0, 0.8); /* Darken on hover */
-    transform: scale(1.1); /* Slight zoom effect on hover */
-    transition: 0.3s ease; 
-  }
-  
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0.6);
+  border: 2px solid white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  width: 20px;
+  height: 20px;
+  background-size: 100%;
+}
+
+.custom-carousel-control:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+  transform: scale(1.1);
+  transition: 0.3s ease;
+}

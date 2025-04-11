@@ -162,45 +162,33 @@ const TouristForm = () => {
                     </div>
                 );
                 case 5:
-                    return (
-                      <div className="step-container">
-                        <h2>Step 5: Preferred Modes of Transport</h2>
-                        <p>Choose how you'd like to travel around your destination.</p>
-                        <div className="checkbox-group">
-                          
-                            <input
-                              type="checkbox"
-                              name="preferredModeOfTransport"
-                              value="Car"
-                              checked={formData.preferredModeOfTransport.includes("Car")}
-                              onChange={handleChange}
-                            />
-                            Car
-                          
-                          
-                            <input
-                              type="checkbox"
-                              name="preferredModeOfTransport"
-                              value="Bike"
-                              checked={formData.preferredModeOfTransport.includes("Bike")}
-                              onChange={handleChange}
-                            />
-                            Bike
-                         
-                          
-                            <input
-                              type="checkbox"
-                              name="preferredModeOfTransport"
-                              value="Bus"
-                              checked={formData.preferredModeOfTransport.includes("Bus")}
-                              onChange={handleChange}
-                            />
-                            Bus
-                         
-                        </div>
-                        {errors.preferredModeOfTransport && <p className="error-message">{errors.preferredModeOfTransport}</p>}
-                      </div>
-                    );
+  return (
+    <div className="step-container">
+      <h2>Step 5: Preferred Modes of Transport</h2>
+      <p>Choose how you'd like to travel around your destination.</p>
+      
+      <div className="transport-options">
+        {["Car", "Bike", "Bus"].map((transport) => (
+          <div className="transport-option" key={transport}>
+            <input
+              type="checkbox"
+              id={`transport-${transport}`}
+              name="preferredModeOfTransport"
+              value={transport}
+              checked={formData.preferredModeOfTransport.includes(transport)}
+              onChange={handleChange}
+              className="transport-checkbox"
+            />
+            <label htmlFor={`transport-${transport}`} className="transport-label">
+              {transport}
+            </label>
+          </div>
+        ))}
+      </div>
+      
+      {errors.preferredModeOfTransport && <p className="error-message">{errors.preferredModeOfTransport}</p>}
+    </div>
+  );
             case 6:
                 return (
                     <div className="step-container">
@@ -273,11 +261,11 @@ const TouristForm = () => {
                 {renderStep()}
 
                 <div className="form-navigation">
-                    {step > 1 && <button type="button" onClick={handlePreviousStep}>Previous</button>}
+                    {step > 1 && <button className="prev-button" type="button" onClick={handlePreviousStep}>Previous</button>}
                     {step < 8 ? (
-                        <button type="button" onClick={handleNextStep}>Next</button>
+                        <button className="next-button" type="button" onClick={handleNextStep}>Next</button>
                     ) : (
-                        <button type="submit">Submit</button>
+                        <button className="next-button" type="submit">Submit</button>
                     )}
                 </div>
             </form>

@@ -1,5 +1,4 @@
 import React from 'react';
-// Make sure to create this CSS file
 
 const Footer = () => {
   return (
@@ -16,17 +15,17 @@ const Footer = () => {
           <ul className="list-inline social-icons">
             <li className="list-inline-item">
               <a href="https://www.example.com" className="text-light" target="_blank" rel="noopener noreferrer">
-                <span className="icon">🌐</span> {/* Custom icon */}
+                <span className="icon">🌐</span>
               </a>
             </li>
             <li className="list-inline-item">
               <a href="mailto:contact@example.com" className="text-light">
-                <span className="icon">📧</span> {/* Custom icon */}
+                <span className="icon">📧</span>
               </a>
             </li>
             <li className="list-inline-item">
               <a href="tel:+1234567890" className="text-light">
-                <span className="icon">📱</span> {/* Custom icon */}
+                <span className="icon">📱</span>
               </a>
             </li>
           </ul>

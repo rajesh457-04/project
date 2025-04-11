@@ -15,11 +15,11 @@ const guideSchema = new mongoose.Schema({
         required: true
     },
     guideExperience: {
-        type: String,  // Storing experience in years as a string
+        type: String,  
         required: true
     },
     modeOfTransport: {
-        type: [String], // Array of strings for multiple transport options
+        type: [String], 
         required: true
     },
     languagesSpoken: {
@@ -27,7 +27,7 @@ const guideSchema = new mongoose.Schema({
         required: true
     },
     guideType: {
-        type: String, // Male, Female, No Preference
+        type: String, 
         required: true
     },
     location: {

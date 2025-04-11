@@ -1,7 +1,7 @@
-import React from 'react'; 
+import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import 'bootstrap/js/src/carousel'; // Import Bootstrap JS for carousel functionality
-import './ImageCarousel.css'; // Import the central CSS file for custom styles
+import 'bootstrap/js/src/carousel';
+import './ImageCarousel.css';
 
 const ImageCarousel = () => {
   return (

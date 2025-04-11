@@ -1,10 +1,8 @@
-/* style5.css */
 
-/* General body styling */
 body {
     font-family: 'Arial', sans-serif;
-    background-color: #2c3e50; /* Dark background for a sleek look */
-    color: #ecf0f1; /* Light text color for contrast */
+    background-color: #2c3e50;
+    color: #ecf0f1; 
     margin: 0;
     padding: 0;
     display: flex;
@@ -13,8 +11,7 @@ body {
     height: 100vh;
 }
 
-/* Container for the login
- form */
+
  @import url('https://api.fontshare.com/v2/css?f[]=clash-display@400,500,600,700&display=swap');
 
 .form-containers {
@@ -23,27 +20,26 @@ body {
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     width: 100%;
-    max-width: 420px; /* Increased width for more space */
+    max-width: 420px; 
     text-align: center;
     position: relative;
 }
 
-/* Form heading */
+
 .heading {
-    font-size: 28px; /* Slightly bigger font for the heading */
+    font-size: 28px; 
     margin-bottom: 20px;
     font-weight: bold;
     color: #1abc9c;
-    letter-spacing: 1px; /* Slightly increase letter-spacing for a cleaner look */
+    letter-spacing: 1px; 
 }
 
-/* Input field container */
 .input {
     position: relative;
-    margin-bottom: 30px; /* Increased bottom margin for more space */
+    margin-bottom: 30px; 
 }
 
-/* Input fields */
+
 input {
     width: 100%;
     height: px;
@@ -51,25 +47,25 @@ input {
     font-size: 16px;
     color: #ecf0f1;
     background-color: #e73909;
-    border: 2px solid #6fe310; /* More prominent border */
+    border: 2px solid #6fe310; 
     border-radius: 5px;
     outline: none;
     transition: all 0.3s ease;
     
 }
 
-/* Input focus styling */
+
 input:focus {
     border-color: #16a085;
-    box-shadow: 0 0 5px rgba(26, 188, 133, 0.6); /* Green glow when focused */
+    box-shadow: 0 0 5px rgba(26, 188, 133, 0.6); 
 }
 
-/* Input placeholder styling */
+
 input::placeholder {
-    color: #bdc3c7; /* Lighter placeholder text */
+    color: #bdc3c7; 
 }
 
-/* Label styling */
+
 label {
     transform: translateY(-12px);
     position: absolute;
@@ -80,16 +76,16 @@ label {
     transition: 0.3s ease;
 }
 
-/* Move label up when input is focused or filled */
+
 input:focus ~ label,
 input:not(:placeholder-shown) ~ label {
     top: -10px;
     left: 20px;
     font-size: 14px;
-    color: #1abc9c; /* Label turns teal when input is focused */
+    color: #1abc9c; 
 }
 
-/* Icon styling inside input fields */
+
 .icon {
     position: absolute;
     top: 50%;
@@ -99,7 +95,7 @@ input:not(:placeholder-shown) ~ label {
     color: #1abc9c;
 }
 
-/* Button styling */
+
 .btn1 {
     width: 100%;
     padding: 15px;
@@ -112,12 +108,11 @@ input:not(:placeholder-shown) ~ label {
     transition: background-color 0.3s ease;
 }
 
-/* Button hover effect */
+
 .btn1:hover {
     background-color: #16a085;
 }
 
-/* Error message styling */
 .error-message {
     margin-top: 10px;
     color: #e74c3c;
@@ -125,7 +120,6 @@ input:not(:placeholder-shown) ~ label {
     font-weight: bold;
 }
 
-/* Link to register */
 .login-register {
     margin-top: 25px;
 }
@@ -146,7 +140,6 @@ input:not(:placeholder-shown) ~ label {
     text-decoration: underline;
 }
 
-/* Cool background gradient */
 .form-containers::before {
     content: '';
     position: absolute;
@@ -160,7 +153,6 @@ input:not(:placeholder-shown) ~ label {
     filter: blur(10px);
 }
 
-/* Additional media query for smaller screens */
 @media (max-width: 480px) {
     .form-containers {
         padding: 30px 20px;
